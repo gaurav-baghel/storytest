@@ -1,0 +1,10 @@
+{
+  "story": "AUTH-77",
+  "locators": [
+    {
+      "name": "Account locked",
+      "data-testid": "account-locked",
+      "role": ""
+    }
+  ]
+}

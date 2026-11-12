@@ -1,0 +1,236 @@
+{
+  "story_id": "SHOP-142",
+  "title": "Apply a coupon code at checkout",
+  "summary": "12 scenarios covering 5 acceptance criteria (offline heuristic mode).",
+  "risks": [
+    "Generated without an LLM: review wording and add domain-specific cases."
+  ],
+  "scenarios": [
+    {
+      "id": "TC-01",
+      "title": "Verify: Given a logged-in user with items in the cart, when they enter a vali\u2026",
+      "type": "positive",
+      "priority": "P0",
+      "level": "ui",
+      "preconditions": [
+        "a logged-in user with items in the cart"
+      ],
+      "steps": [
+        "they enter a valid code and click \"Apply coupon\""
+      ],
+      "expected": [
+        "the order total is reduced by the coupon discount"
+      ],
+      "automate": true,
+      "criterion": "Given a logged-in user with items in the cart, when they enter a valid code and click \"Apply coupon\", then the order total is reduced by the coupon discount."
+    },
+    {
+      "id": "TC-02",
+      "title": "Verify: An expired or invalid code shows the message \"Coupon is not valid\" an\u2026",
+      "type": "positive",
+      "priority": "P1",
+      "level": "ui",
+      "preconditions": [
+        "User is logged in"
+      ],
+      "steps": [
+        "Perform the action described: An expired or invalid code shows the message \"Coupon is not valid\" an\u2026"
+      ],
+      "expected": [
+        "An expired or invalid code shows the message \"Coupon is not valid\" and the total does not change."
+      ],
+      "automate": true,
+      "criterion": "An expired or invalid code shows the message \"Coupon is not valid\" and the total does not change."
+    },
+    {
+      "id": "TC-03",
+      "title": "Negative path for: An expired or invalid code shows the message \"Coupon is not valid\" an\u2026",
+      "type": "negative",
+      "priority": "P1",
+      "level": "ui",
+      "preconditions": [],
+      "steps": [
+        "Provide input that violates the rule"
+      ],
+      "expected": [
+        "Request is rejected with a clear, user-facing error",
+        "No partial state is saved"
+      ],
+      "automate": true,
+      "criterion": "An expired or invalid code shows the message \"Coupon is not valid\" and the total does not change."
+    },
+    {
+      "id": "TC-04",
+      "title": "Verify: A coupon only applies when the cart subtotal is at least 499.",
+      "type": "positive",
+      "priority": "P1",
+      "level": "ui",
+      "preconditions": [
+        "User is logged in"
+      ],
+      "steps": [
+        "Perform the action described: A coupon only applies when the cart subtotal is at least 499."
+      ],
+      "expected": [
+        "A coupon only applies when the cart subtotal is at least 499."
+      ],
+      "automate": true,
+      "criterion": "A coupon only applies when the cart subtotal is at least 499."
+    },
+    {
+      "id": "TC-05",
+      "title": "Boundary values for: A coupon only applies when the cart subtotal is at least 499.",
+      "type": "edge",
+      "priority": "P2",
+      "level": "api",
+      "preconditions": [],
+      "steps": [
+        "Test the value just below, at, and just above each limit in the criterion"
+      ],
+      "expected": [
+        "Behaviour switches exactly at the stated limit"
+      ],
+      "automate": true,
+      "criterion": "A coupon only applies when the cart subtotal is at least 499."
+    },
+    {
+      "id": "TC-06",
+      "title": "Negative path for: A coupon only applies when the cart subtotal is at least 499.",
+      "type": "negative",
+      "priority": "P1",
+      "level": "ui",
+      "preconditions": [],
+      "steps": [
+        "Provide input that violates the rule"
+      ],
+      "expected": [
+        "Request is rejected with a clear, user-facing error",
+        "No partial state is saved"
+      ],
+      "automate": true,
+      "criterion": "A coupon only applies when the cart subtotal is at least 499."
+    },
+    {
+      "id": "TC-07",
+      "title": "Verify: Only one coupon can be applied per order.",
+      "type": "positive",
+      "priority": "P1",
+      "level": "api",
+      "preconditions": [
+        "User is logged in"
+      ],
+      "steps": [
+        "Perform the action described: Only one coupon can be applied per order."
+      ],
+      "expected": [
+        "Only one coupon can be applied per order."
+      ],
+      "automate": true,
+      "criterion": "Only one coupon can be applied per order."
+    },
+    {
+      "id": "TC-08",
+      "title": "Negative path for: Only one coupon can be applied per order.",
+      "type": "negative",
+      "priority": "P1",
+      "level": "api",
+      "preconditions": [],
+      "steps": [
+        "Provide input that violates the rule"
+      ],
+      "expected": [
+        "Request is rejected with a clear, user-facing error",
+        "No partial state is saved"
+      ],
+      "automate": true,
+      "criterion": "Only one coupon can be applied per order."
+    },
+    {
+      "id": "TC-09",
+      "title": "Verify: The applied coupon can be removed with the \"Remove\" link and the tota\u2026",
+      "type": "positive",
+      "priority": "P1",
+      "level": "ui",
+      "preconditions": [
+        "User is logged in"
+      ],
+      "steps": [
+        "Perform the action described: The applied coupon can be removed with the \"Remove\" link and the tota\u2026"
+      ],
+      "expected": [
+        "The applied coupon can be removed with the \"Remove\" link and the total is restored."
+      ],
+      "automate": true,
+      "criterion": "The applied coupon can be removed with the \"Remove\" link and the total is restored."
+    },
+    {
+      "id": "TC-10",
+      "title": "Idempotency: repeat the same action twice quickly",
+      "type": "edge",
+      "priority": "P1",
+      "level": "api",
+      "preconditions": [],
+      "steps": [
+        "Send the same request twice concurrently"
+      ],
+      "expected": [
+        "Only one effect is applied",
+        "Totals stay consistent"
+      ],
+      "automate": true,
+      "criterion": ""
+    },
+    {
+      "id": "TC-11",
+      "title": "Unauthenticated access is blocked",
+      "type": "security",
+      "priority": "P1",
+      "level": "api",
+      "preconditions": [],
+      "steps": [
+        "Call the endpoint without a session or with an expired token"
+      ],
+      "expected": [
+        "401/403 returned",
+        "No data leaked in the response body"
+      ],
+      "automate": true,
+      "criterion": ""
+    },
+    {
+      "id": "TC-12",
+      "title": "Keyboard and screen-reader access for new UI",
+      "type": "accessibility",
+      "priority": "P2",
+      "level": "manual",
+      "preconditions": [],
+      "steps": [
+        "Navigate the new elements with keyboard only",
+        "Inspect with a screen reader"
+      ],
+      "expected": [
+        "All controls reachable and labelled"
+      ],
+      "automate": false,
+      "criterion": ""
+    }
+  ],
+  "locators": [
+    {
+      "name": "Apply coupon",
+      "test_id": "apply-coupon",
+      "role": ""
+    },
+    {
+      "name": "Coupon is not valid",
+      "test_id": "coupon-is-not-valid",
+      "role": ""
+    },
+    {
+      "name": "Remove",
+      "test_id": "remove",
+      "role": ""
+    }
+  ],
+  "open_questions": []
+}

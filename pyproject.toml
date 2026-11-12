@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "storytest"
+version = "0.1.0"
+description = "Turn user stories into risk-based test plans, Playwright skeletons and locator contracts, with Claude or offline."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Gaurav Baghel" }]
+dependencies = []
+
+[project.optional-dependencies]
+claude = ["anthropic>=0.40"]
+dev = ["pytest>=8"]
+
+[project.scripts]
+storytest = "storytest.cli:main"
+
+[tool.setuptools]
+packages = ["storytest"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

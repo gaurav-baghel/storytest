@@ -1,0 +1,18 @@
+{
+  "key": "AUTH-77",
+  "fields": {
+    "summary": "Lock account after repeated failed logins",
+    "description": {
+      "type": "doc",
+      "content": [
+        {"type": "paragraph", "content": [{"type": "text", "text": "Protect accounts from password guessing."}]},
+        {"type": "heading", "content": [{"type": "text", "text": "Acceptance criteria"}]},
+        {"type": "bulletList", "content": [
+          {"type": "listItem", "content": [{"type": "paragraph", "content": [{"type": "text", "text": "After 5 failed login attempts within 15 minutes the account is locked."}]}]},
+          {"type": "listItem", "content": [{"type": "paragraph", "content": [{"type": "text", "text": "A locked user sees the message \"Account locked\" on the login page."}]}]},
+          {"type": "listItem", "content": [{"type": "paragraph", "content": [{"type": "text", "text": "A successful login resets the failed attempt counter."}]}]}
+        ]}
+      ]
+    }
+  }
+}

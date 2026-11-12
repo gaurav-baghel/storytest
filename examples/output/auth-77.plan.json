@@ -1,0 +1,122 @@
+{
+  "story_id": "AUTH-77",
+  "title": "Lock account after repeated failed logins",
+  "summary": "6 scenarios covering 3 acceptance criteria (offline heuristic mode).",
+  "risks": [
+    "Generated without an LLM: review wording and add domain-specific cases."
+  ],
+  "scenarios": [
+    {
+      "id": "TC-01",
+      "title": "Verify: After 5 failed login attempts within 15 minutes the account is locked.",
+      "type": "positive",
+      "priority": "P0",
+      "level": "api",
+      "preconditions": [
+        "User is logged in"
+      ],
+      "steps": [
+        "Perform the action described: After 5 failed login attempts within 15 minutes the account is locked."
+      ],
+      "expected": [
+        "After 5 failed login attempts within 15 minutes the account is locked."
+      ],
+      "automate": true,
+      "criterion": "After 5 failed login attempts within 15 minutes the account is locked."
+    },
+    {
+      "id": "TC-02",
+      "title": "Boundary values for: After 5 failed login attempts within 15 minutes the account is locked.",
+      "type": "edge",
+      "priority": "P2",
+      "level": "api",
+      "preconditions": [],
+      "steps": [
+        "Test the value just below, at, and just above each limit in the criterion"
+      ],
+      "expected": [
+        "Behaviour switches exactly at the stated limit"
+      ],
+      "automate": true,
+      "criterion": "After 5 failed login attempts within 15 minutes the account is locked."
+    },
+    {
+      "id": "TC-03",
+      "title": "Verify: A locked user sees the message \"Account locked\" on the login page.",
+      "type": "positive",
+      "priority": "P1",
+      "level": "ui",
+      "preconditions": [
+        "User is logged in"
+      ],
+      "steps": [
+        "Perform the action described: A locked user sees the message \"Account locked\" on the login page."
+      ],
+      "expected": [
+        "A locked user sees the message \"Account locked\" on the login page."
+      ],
+      "automate": true,
+      "criterion": "A locked user sees the message \"Account locked\" on the login page."
+    },
+    {
+      "id": "TC-04",
+      "title": "Verify: A successful login resets the failed attempt counter.",
+      "type": "positive",
+      "priority": "P1",
+      "level": "api",
+      "preconditions": [
+        "User is logged in"
+      ],
+      "steps": [
+        "Perform the action described: A successful login resets the failed attempt counter."
+      ],
+      "expected": [
+        "A successful login resets the failed attempt counter."
+      ],
+      "automate": true,
+      "criterion": "A successful login resets the failed attempt counter."
+    },
+    {
+      "id": "TC-05",
+      "title": "Unauthenticated access is blocked",
+      "type": "security",
+      "priority": "P1",
+      "level": "api",
+      "preconditions": [],
+      "steps": [
+        "Call the endpoint without a session or with an expired token"
+      ],
+      "expected": [
+        "401/403 returned",
+        "No data leaked in the response body"
+      ],
+      "automate": true,
+      "criterion": ""
+    },
+    {
+      "id": "TC-06",
+      "title": "Keyboard and screen-reader access for new UI",
+      "type": "accessibility",
+      "priority": "P2",
+      "level": "manual",
+      "preconditions": [],
+      "steps": [
+        "Navigate the new elements with keyboard only",
+        "Inspect with a screen reader"
+      ],
+      "expected": [
+        "All controls reachable and labelled"
+      ],
+      "automate": false,
+      "criterion": ""
+    }
+  ],
+  "locators": [
+    {
+      "name": "Account locked",
+      "test_id": "account-locked",
+      "role": ""
+    }
+  ],
+  "open_questions": []
+}

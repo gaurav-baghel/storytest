@@ -1,0 +1,20 @@
+{
+  "story": "SHOP-142",
+  "locators": [
+    {
+      "name": "Apply coupon",
+      "data-testid": "apply-coupon",
+      "role": ""
+    },
+    {
+      "name": "Coupon is not valid",
+      "data-testid": "coupon-is-not-valid",
+      "role": ""
+    },
+    {
+      "name": "Remove",
+      "data-testid": "remove",
+      "role": ""
+    }
+  ]
+}
